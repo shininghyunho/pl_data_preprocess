@@ -1,23 +1,15 @@
 object Federation {
     // federation 이름이 중복 되는지 여부
     private fun isDuplicatedFederation(name:String) : Boolean {
-        var isDuplicated = false
-        try {
-            val sql = "select * from federation where name = (?)"
-            val preparedStatement = Database.getConnection().prepareStatement(sql)
-            preparedStatement.setString(1, name)
-
-            val resultSet = preparedStatement.executeQuery()
-            while (resultSet.next()) {
-                isDuplicated = true
+       SelectExecutor()
+            .select("id")
+            .from("federation")
+            .addWhere("name", name)
+            .execute()
+            ?.let {
+                return true
             }
-            resultSet.close()
-            preparedStatement.close()
-
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return isDuplicated
+        return false
     }
 
     // get federation id
