@@ -1,13 +1,13 @@
 import java.sql.PreparedStatement
 
 class InsertExecutor {
-    var tableName: String = ""
+    private var tableName: String = ""
 
-    val columns = mutableListOf<column>()
-    class column (
+    class Column (
         val name: String,
         val value : Any
     )
+    private val columns = mutableListOf<Column>()
 
     fun setTable(tableName:String) : InsertExecutor {
         this.tableName = tableName
@@ -16,7 +16,7 @@ class InsertExecutor {
 
     fun addColumn(columnName:String, value:Any?) : InsertExecutor {
         value?.let {
-            columns.add(column(columnName, it))
+            columns.add(Column(columnName, it))
         }
         return this
     }

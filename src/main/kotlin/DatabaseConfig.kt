@@ -1,5 +1,5 @@
 object DatabaseConfig {
-    const val url = ""
-    const val user = ""
-    const val password = ""
+    const val URL = ""
+    const val USER = ""
+    const val PASSWORD = ""
 }

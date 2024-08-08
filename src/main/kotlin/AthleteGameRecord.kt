@@ -1,42 +1,4 @@
 object AthleteGameRecord {
-    /**
-     * CREATE TABLE athlete_game_record (
-     *                                      id BIGINT AUTO_INCREMENT PRIMARY KEY,
-     *                                      equipment VARCHAR(255),
-     *                                      age FLOAT,
-     *                                      age_class VARCHAR(255),
-     *                                      birth_year_class VARCHAR(255),
-     *                                      division VARCHAR(255),
-     *                                      body_weight DOUBLE,
-     *                                      weight_class VARCHAR(255),
-     *                                      squat1 FLOAT,
-     *                                      squat2 FLOAT,
-     *                                      squat3 FLOAT,
-     *                                      squat4 FLOAT,
-     *                                      bench1 FLOAT,
-     *                                      bench2 FLOAT,
-     *                                      bench3 FLOAT,
-     *                                      bench4 FLOAT,
-     *                                      deadlift1 FLOAT,
-     *                                      deadlift2 FLOAT,
-     *                                      deadlift3 FLOAT,
-     *                                      deadlift4 FLOAT,
-     *                                      total VARCHAR(255),
-     *                                      place INT,
-     *                                      dots DOUBLE,
-     *                                      wilks DOUBLE,
-     *                                      glossbrenner DOUBLE,
-     *                                      goodlift DOUBLE,
-     *                                      tested BOOLEAN,
-     *                                      sanctioned BOOLEAN,
-     *                                      athlete_id BIGINT NOT NULL,
-     *                                      game_id BIGINT NOT NULL,
-     *                                      FOREIGN KEY (athlete_id) REFERENCES athlete(id),
-     *                                      FOREIGN KEY (game_id) REFERENCES game(id)
-     * );
-     */
-
-    // insert
     fun insert(
         equipment: String?,
         age: Float?,

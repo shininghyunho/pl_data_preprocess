@@ -6,7 +6,7 @@ object Database {
 
     fun getConnection() : Connection {
         if(connection == null) {
-            connection = DriverManager.getConnection(DatabaseConfig.url, DatabaseConfig.user, DatabaseConfig.password)
+            connection = DriverManager.getConnection(DatabaseConfig.URL, DatabaseConfig.USER, DatabaseConfig.PASSWORD)
         }
         return connection!!
     }

@@ -1,13 +1,13 @@
 import java.sql.PreparedStatement
 
 class SelectExecutor {
-    var selectValue:String = ""
-    var tableName:String = ""
+    private var selectValue:String = ""
+    private var tableName:String = ""
     class Where (
         val columnName: String,
         val value: Any
     )
-    val whereList = mutableListOf<Where>()
+    private val whereList = mutableListOf<Where>()
 
     fun select(selectValue:String) : SelectExecutor {
         this.selectValue = selectValue
