@@ -1,21 +1,10 @@
 object Federation {
-    fun showFederation(limit:Int = 10) {
-        val statement = AwsDB.getConnection().createStatement()
-        val resultSet = statement.executeQuery("SELECT * FROM federation limit $limit")
-        println("id, name, parent_federation_id")
-        while (resultSet.next()) {
-            println("${resultSet.getLong(1)}, ${resultSet.getString(2)}, ${resultSet.getLong(3)}")
-        }
-        resultSet.close()
-        statement.close()
-    }
-
     // federation 이름이 중복 되는지 여부
     private fun isDuplicatedFederation(name:String) : Boolean {
         var isDuplicated = false
         try {
             val sql = "select * from federation where name = (?)"
-            val preparedStatement = AwsDB.getConnection().prepareStatement(sql)
+            val preparedStatement = Database.getConnection().prepareStatement(sql)
             preparedStatement.setString(1, name)
 
             val resultSet = preparedStatement.executeQuery()

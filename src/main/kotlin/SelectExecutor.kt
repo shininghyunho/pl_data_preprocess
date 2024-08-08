@@ -39,7 +39,7 @@ class SelectExecutor {
     }
 
     fun getPreparedStatement(sql:String) : PreparedStatement {
-        val connection = AwsDB.getConnection()
+        val connection = Database.getConnection()
         val preparedStatement = connection.prepareStatement(sql)
         for((i, where) in whereList.withIndex()) {
             val index = i + 1

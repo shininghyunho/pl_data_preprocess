@@ -34,7 +34,7 @@ class InsertExecutor {
     }
 
     private fun getPreparedStatement(sql:String) : PreparedStatement {
-        val connection = AwsDB.getConnection()
+        val connection = Database.getConnection()
         val preparedStatement = connection.prepareStatement(sql)
         for((i, column) in columns.withIndex()) {
             val index = i + 1
