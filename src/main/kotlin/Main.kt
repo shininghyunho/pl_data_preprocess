@@ -3,11 +3,13 @@ package com
 import Athlete
 import Federation;
 import java.io.File
+import java.nio.file.Paths
 
-// TODO : 파일 경로 입력
-val openPLSample = ""
+val openPLSample = Paths.get("sample_data", "openpowerlifting-2024-07-13-16cc7ca6-sample.csv").toAbsolutePath().toString()
+val openIpfSample = Paths.get("sample_data", "openipf-2024-07-13-16cc7ca6-sample.csv").toAbsolutePath().toString()
 
 fun main() {
+    printAllColumnName(openPLSample)
 //    insertFederation(openPLSample)
 //    insertAthlete(openPLSample)
 //    insertGame(openPLSample)
