@@ -3,9 +3,9 @@
 - Main 클래스를 참조하세요.
 
 # 유의사항
-- 실제 remote db 에 저장하려면 AwsDB 파일에서 구체적인 값을 입력하세요.
+- 실제 remote db 에 저장하려면 DatabaseConfig 파일에서 구체적인 값을 입력하세요.
 ```
-// TODO : AWS RDS 정보 입력
+// 실제 DB 정보 입력
 const val url = ""
 const val user = ""
 const val password = ""
