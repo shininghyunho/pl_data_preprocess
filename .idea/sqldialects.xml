@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/Athlete.kt" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/AthleteGameRecord.kt" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/Federation.kt" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/Game.kt" dialect="GenericSQL" />
+  </component>
+</project>
