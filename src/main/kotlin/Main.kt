@@ -5,12 +5,12 @@ val openPLSample = Paths.get("sample_data", "openpowerlifting-2024-07-13-16cc7ca
 val openIpfSample = Paths.get("sample_data", "openipf-2024-07-13-16cc7ca6-sample.csv").toAbsolutePath().toString()
 
 fun main() {
-//    testDB()
-//    printAllColumnName(openPLSample)
+    printAllColumnName(openPLSample)
+//    testDB() # TODO  실제 DB를 사용하려면  DatabaseConfig.kt 파일을 수정해야 합니다.
 //    insertFederation(openPLSample)
 //    insertAthlete(openPLSample)
 //    insertGame(openPLSample)
-    insertAthleteGameRecord(openPLSample)
+//    insertAthleteGameRecord(openPLSample)
 }
 
 // print all columns
