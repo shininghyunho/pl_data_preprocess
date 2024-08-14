@@ -1,5 +1,3 @@
-package com
-
 import java.io.File
 import java.nio.file.Paths
 
@@ -74,7 +72,7 @@ fun insertAthlete(path: String) {
             val values = line.split(",")
             val name = values[nameIndex]
             val sex = values[sexIndex]
-            Athlete.insert(name,sex)
+            Athlete.insert(name, sex)
         }
     } catch (e: Exception) {
         e.printStackTrace()
@@ -106,7 +104,7 @@ fun insertGame(path: String) {
             val meetTown = values[meetTownIndex]
             val meetName = values[meetNameIndex]
             val federationName = values[federationIndex]
-            Game.insert(event,country,state,date,meetCountry,meetState,meetTown,meetName,federationName)
+            Game.insert(event, country, state, date, meetCountry, meetState, meetTown, meetName, federationName)
         }
     } catch (e: Exception) {
         e.printStackTrace()

@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     // my sql connector
-    implementation("mysql:mysql-connector-java:8.0.26")
+    implementation("mysql:mysql-connector-java:8.0.33")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
