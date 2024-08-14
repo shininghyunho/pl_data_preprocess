@@ -2,9 +2,9 @@ object Athlete {
     fun insert(name:String?,sex:String?) {
         try {
             InsertExecutor()
-                .setTable("athlete")
-                .addColumn("name", name)
-                .addColumn("sex",sex)
+                .table("athlete")
+                .column("name", name)
+                .column("sex",sex)
                 .execute()
         } catch (e: Exception) {
             //e.printStackTrace()
@@ -18,11 +18,19 @@ object Athlete {
         SelectExecutor()
             .select("id")
             .from("athlete")
-            .addWhere("name", name)
+            .where("name", name)
             .execute()
             ?.let {
                 return it.toLong()
             }
         return null
+    }
+
+    fun getAthletes(limit:Int=10) : String? {
+        return SelectExecutor()
+            .select("*")
+            .from("athlete")
+            .limit(limit)
+            .execute()
     }
 }

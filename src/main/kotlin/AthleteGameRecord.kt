@@ -11,14 +11,17 @@ object AthleteGameRecord {
         squat2: Float?,
         squat3: Float?,
         squat4: Float?,
+        bestSquat: Float?,
         bench1: Float?,
         bench2: Float?,
         bench3: Float?,
         bench4: Float?,
+        bestBench: Float?,
         deadlift1: Float?,
         deadlift2: Float?,
         deadlift3: Float?,
         deadlift4: Float?,
+        bestDeadlift: Float?,
         total: String?,
         place: Int?,
         dots: Double?,
@@ -32,36 +35,39 @@ object AthleteGameRecord {
     ) {
         try {
            InsertExecutor()
-               .setTable("athlete_game_record")
-               .addColumn("equipment", equipment)
-               .addColumn("age", age)
-               .addColumn("age_class", ageClass)
-               .addColumn("birth_year_class", birthYearClass)
-               .addColumn("division", division)
-               .addColumn("body_weight", bodyWeight)
-               .addColumn("weight_class", weightClass)
-               .addColumn("squat1", squat1)
-               .addColumn("squat2", squat2)
-               .addColumn("squat3", squat3)
-               .addColumn("squat4", squat4)
-               .addColumn("bench1", bench1)
-               .addColumn("bench2", bench2)
-               .addColumn("bench3", bench3)
-               .addColumn("bench4", bench4)
-               .addColumn("deadlift1", deadlift1)
-               .addColumn("deadlift2", deadlift2)
-               .addColumn("deadlift3", deadlift3)
-               .addColumn("deadlift4", deadlift4)
-               .addColumn("total", total)
-               .addColumn("place", place)
-               .addColumn("dots", dots)
-               .addColumn("wilks", wilks)
-               .addColumn("glossbrenner", glossbrenner)
-               .addColumn("goodlift", goodlift)
-               .addColumn("tested", tested)
-               .addColumn("sanctioned", sanctioned)
-               .addColumn("athlete_id", athleteId)
-               .addColumn("game_id", gameId)
+               .table("athlete_game_record")
+               .column("equipment", equipment)
+               .column("age", age)
+               .column("age_class", ageClass)
+               .column("birth_year_class", birthYearClass)
+               .column("division", division)
+               .column("body_weight", bodyWeight)
+               .column("weight_class", weightClass)
+               .column("squat1", squat1)
+               .column("squat2", squat2)
+               .column("squat3", squat3)
+               .column("squat4", squat4)
+               .column("best_squat", bestSquat)
+               .column("bench1", bench1)
+               .column("bench2", bench2)
+               .column("bench3", bench3)
+               .column("bench4", bench4)
+                .column("best_bench", bestBench)
+               .column("deadlift1", deadlift1)
+               .column("deadlift2", deadlift2)
+               .column("deadlift3", deadlift3)
+               .column("deadlift4", deadlift4)
+                .column("best_deadlift", bestDeadlift)
+               .column("total", total)
+               .column("place", place)
+               .column("dots", dots)
+               .column("wilks", wilks)
+               .column("glossbrenner", glossbrenner)
+               .column("goodlift", goodlift)
+               .column("tested", tested)
+               .column("sanctioned", sanctioned)
+               .column("athlete_id", athleteId)
+               .column("game_id", gameId)
                .execute()
         } catch (e: Exception) {
             e.printStackTrace()

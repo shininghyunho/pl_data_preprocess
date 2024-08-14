@@ -9,12 +9,12 @@ class InsertExecutor {
     )
     private val columns = mutableListOf<Column>()
 
-    fun setTable(tableName:String) : InsertExecutor {
+    fun table(tableName:String) : InsertExecutor {
         this.tableName = tableName
         return this
     }
 
-    fun addColumn(columnName:String, value:Any?) : InsertExecutor {
+    fun column(columnName:String, value:Any?) : InsertExecutor {
         value?.let {
             columns.add(Column(columnName, it))
         }

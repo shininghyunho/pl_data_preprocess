@@ -8,6 +8,7 @@ class SelectExecutor {
         val value: Any
     )
     private val whereList = mutableListOf<Where>()
+    private var limit:Int? = null
 
     fun select(selectValue:String) : SelectExecutor {
         this.selectValue = selectValue
@@ -19,14 +20,21 @@ class SelectExecutor {
         return this
     }
 
-    fun addWhere(columnName:String, value:Any) : SelectExecutor {
+    fun where(columnName:String, value:Any) : SelectExecutor {
         whereList.add(Where(columnName, value))
+        return this
+    }
+
+    fun limit(limit:Int) : SelectExecutor {
+        this.limit = limit
         return this
     }
 
     fun execute() : String? {
         val whereClause = whereList.joinToString(" and ") { "${it.columnName} = ?" }
-        val sql = "select $selectValue from $tableName where $whereClause"
+        var sql = "select $selectValue from $tableName"
+        if(whereClause.isNotBlank()) sql+=" where $whereClause"
+        if(limit != null) sql+=" limit $limit"
         val preparedStatement = getPreparedStatement(sql)
         val resultSet = preparedStatement.executeQuery()
         var result:String? = null

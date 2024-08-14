@@ -5,11 +5,12 @@ val openPLSample = Paths.get("sample_data", "openpowerlifting-2024-07-13-16cc7ca
 val openIpfSample = Paths.get("sample_data", "openipf-2024-07-13-16cc7ca6-sample.csv").toAbsolutePath().toString()
 
 fun main() {
-    printAllColumnName(openPLSample)
+//    testDB()
+//    printAllColumnName(openPLSample)
 //    insertFederation(openPLSample)
 //    insertAthlete(openPLSample)
 //    insertGame(openPLSample)
-//    insertAthleteGameRecord(openPLSample)
+    insertAthleteGameRecord(openPLSample)
 }
 
 // print all columns
@@ -127,14 +128,17 @@ fun insertAthleteGameRecord(path: String) {
         val squat2Index = columnNames.indexOf("Squat2Kg")
         val squat3Index = columnNames.indexOf("Squat3Kg")
         val squat4Index = columnNames.indexOf("Squat4Kg")
+        val bestSquat = columnNames.indexOf("Best3SquatKg")
         val bench1Index = columnNames.indexOf("Bench1Kg")
         val bench2Index = columnNames.indexOf("Bench2Kg")
         val bench3Index = columnNames.indexOf("Bench3Kg")
         val bench4Index = columnNames.indexOf("Bench4Kg")
+        val bestBench = columnNames.indexOf("Best3BenchKg")
         val deadlift1Index = columnNames.indexOf("Deadlift1Kg")
         val deadlift2Index = columnNames.indexOf("Deadlift2Kg")
         val deadlift3Index = columnNames.indexOf("Deadlift3Kg")
         val deadlift4Index = columnNames.indexOf("Deadlift4Kg")
+        val bestDeadlift = columnNames.indexOf("Best3DeadliftKg")
         val totalIndex = columnNames.indexOf("TotalKg")
         val placeIndex = columnNames.indexOf("Place")
         val dotsIndex = columnNames.indexOf("Dots")
@@ -160,14 +164,17 @@ fun insertAthleteGameRecord(path: String) {
             val squat2 = values[squat2Index].toFloatOrNull()
             val squat3 = values[squat3Index].toFloatOrNull()
             val squat4 = values[squat4Index].toFloatOrNull()
+            val bestSquat = values[bestSquat].toFloatOrNull()
             val bench1 = values[bench1Index].toFloatOrNull()
             val bench2 = values[bench2Index].toFloatOrNull()
             val bench3 = values[bench3Index].toFloatOrNull()
             val bench4 = values[bench4Index].toFloatOrNull()
+            val bestBench = values[bestBench].toFloatOrNull()
             val deadlift1 = values[deadlift1Index].toFloatOrNull()
             val deadlift2 = values[deadlift2Index].toFloatOrNull()
             val deadlift3 = values[deadlift3Index].toFloatOrNull()
             val deadlift4 = values[deadlift4Index].toFloatOrNull()
+            val bestDeadlift = values[bestDeadlift].toFloatOrNull()
             val total = values[totalIndex]
             val place = values[placeIndex].toIntOrNull()
             val dots = values[dotsIndex].toDoubleOrNull()
@@ -194,14 +201,17 @@ fun insertAthleteGameRecord(path: String) {
                 squat2,
                 squat3,
                 squat4,
+                bestSquat,
                 bench1,
                 bench2,
                 bench3,
                 bench4,
+                bestBench,
                 deadlift1,
                 deadlift2,
                 deadlift3,
                 deadlift4,
+                bestDeadlift,
                 total,
                 place,
                 dots,
@@ -218,4 +228,15 @@ fun insertAthleteGameRecord(path: String) {
         e.printStackTrace()
     }
     println("insert athlete game record done")
+}
+
+fun testDB() {
+    try {
+        val athletes = Athlete.getAthletes()
+        print("# test success\n")
+        print(athletes)
+    } catch (e: Exception) {
+        print("# test failed\n")
+        e.printStackTrace()
+    }
 }

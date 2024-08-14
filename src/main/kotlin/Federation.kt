@@ -4,7 +4,7 @@ object Federation {
        SelectExecutor()
             .select("id")
             .from("federation")
-            .addWhere("name", name)
+            .where("name", name)
             .execute()
             ?.let {
                 return true
@@ -20,7 +20,7 @@ object Federation {
        SelectExecutor()
             .select("id")
             .from("federation")
-            .addWhere("name", name)
+            .where("name", name)
             .execute()
             ?.let {
                 return it.toLong()
@@ -43,9 +43,9 @@ object Federation {
             // 부모가 있다면
             val parentFederationId =getFederationId(parentName)
             InsertExecutor()
-                .setTable("federation")
-                .addColumn("name", name)
-                .addColumn("parent_federation_id", parentFederationId)
+                .table("federation")
+                .column("name", name)
+                .column("parent_federation_id", parentFederationId)
                 .execute()
         } catch (e: Exception) {
             //e.printStackTrace()
