@@ -6,6 +6,7 @@ val openIpfSample = Paths.get("sample_data", "openipf-2024-07-13-16cc7ca6-sample
 
 fun main() {
     printAllColumnName(openPLSample)
+//    printTypeValues(openPLSample,"Sex")
 //    testDB() # TODO  실제 DB를 사용하려면  DatabaseConfig.kt 파일을 수정해야 합니다.
 //    insertFederation(openPLSample)
 //    insertAthlete(openPLSample)
@@ -175,7 +176,7 @@ fun insertAthleteGameRecord(path: String) {
             val deadlift3 = values[deadlift3Index].toFloatOrNull()
             val deadlift4 = values[deadlift4Index].toFloatOrNull()
             val bestDeadlift = values[bestDeadlift].toFloatOrNull()
-            val total = values[totalIndex]
+            val total = values[totalIndex].toFloatOrNull()
             val place = values[placeIndex].toIntOrNull()
             val dots = values[dotsIndex].toDoubleOrNull()
             val wilks = values[wilksIndex].toDoubleOrNull()
@@ -237,6 +238,25 @@ fun testDB() {
         print(athletes)
     } catch (e: Exception) {
         print("# test failed\n")
+        e.printStackTrace()
+    }
+}
+
+fun printTypeValues(path: String, columnName: String) {
+    try {
+        val lines = File(path).readLines(Charsets.UTF_8)
+        val columnNames = lines[0].split(",").map { it.trim() }
+        val columnIndex = columnNames.indexOf(columnName)
+        val types = mutableSetOf<String>()
+        // 전체에서 찾음
+        for (line in lines.subList(1,lines.size )) {
+            val values = line.split(",")
+            val type = values[columnIndex]
+            types.add(type)
+        }
+        val sorted= types.sorted()
+        println(sorted)
+    } catch (e: Exception) {
         e.printStackTrace()
     }
 }
