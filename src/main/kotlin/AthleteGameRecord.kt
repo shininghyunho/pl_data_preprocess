@@ -22,7 +22,7 @@ object AthleteGameRecord {
         deadlift3: Float?,
         deadlift4: Float?,
         bestDeadlift: Float?,
-        total: String?,
+        total: Float?,
         place: Int?,
         dots: Double?,
         wilks: Double?,
